@@ -1,0 +1,20 @@
+
+hub:
+  image: selenium/hub
+firefox:
+  image: selenium/node-firefox
+  links:
+    - hub
+chrome:
+  image: selenium/node-chrome
+  links:
+    - hub
+mvn:
+  image: maven:3.3.9-jdk-8
+  volumes:
+    - ./:/usr/src/mvn-src
+  working_dir: /usr/src/mvn-src
+  command: mvn clean install -Dselenium-hub.host=hub
+  links:
+    - hub
+    - firefox

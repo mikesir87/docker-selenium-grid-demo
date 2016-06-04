@@ -1,0 +1,13 @@
+<arquillian>
+
+  <extension qualifier="graphene">
+    <property name="url">https://blog.mikesir87.io/</property>
+  </extension>
+
+  <extension qualifier="webdriver">
+    <property name="browserCapabilities">firefox</property>
+    <property name="remoteReusable">false</property>
+    <property name="remoteAddress">http://${selenium-hub.host}:4444/wd/hub/</property>
+  </extension>
+
+</arquillian>
